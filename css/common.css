@@ -307,7 +307,7 @@ ruby>.fh-ruby-hidden {
     background-color: var(--color-general-dark);
     background-image: var(--corner-marker);
     background-repeat: no-repeat;
-    transition: filter var(--animation-speed-button-switch), background-color var(--animation-speed-button-switch);
+    transition: filter var(--animation-speed-button-switch), background-color var(--animation-speed-button-switch), box-shadow var(--animation-speed-button-switch);
 }
 
 .fh-button:hover:not(.fh-disabled, :disabled) {
@@ -315,7 +315,7 @@ ruby>.fh-ruby-hidden {
 }
 
 .fh-button:active:not(.fh-disabled, :disabled) {
-    transition: filter 0s;
+    transition: filter 0s, background-color 0s, box-shadow var(--animation-speed-button-switch);
     filter: brightness(0.85);
 }
 
@@ -335,7 +335,7 @@ ruby>.fh-ruby-hidden {
     background-color: var(--color-special-dark);
 }
 
-.fh-button:focus:not(.fh-disabled, :disabled) {
+.fh-button:focus:not(.fh-disabled, :disabled, :active) {
     --color-focus: var(--color-general-glass);
     --box-shadow-size: 5px;
     filter: brightness(1.05);
