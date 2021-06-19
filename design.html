@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/common.js"></script>
+    <style>
+        .fh-page-colorpad {
+            width: 600px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .fh-page-colorpad-block {
+            flex: 1;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fh-page-flex-row-example {
+            height: 80px;
+            margin-bottom: 5px;
+            background-image: linear-gradient(90deg,#f5f5f5 4.16666667%,transparent 4.16666667%,transparent 8.33333333%,#f5f5f5 8.33333333%,#f5f5f5 12.5%,transparent 12.5%,transparent 16.66666667%,#f5f5f5 16.66666667%,#f5f5f5 20.83333333%,transparent 20.83333333%,transparent 25%,#f5f5f5 25%,#f5f5f5 29.16666667%,transparent 29.16666667%,transparent 33.33333333%,#f5f5f5 33.33333333%,#f5f5f5 37.5%,transparent 37.5%,transparent 41.66666667%,#f5f5f5 41.66666667%,#f5f5f5 45.83333333%,transparent 45.83333333%,transparent 50%,#f5f5f5 50%,#f5f5f5 54.16666667%,transparent 54.16666667%,transparent 58.33333333%,#f5f5f5 58.33333333%,#f5f5f5 62.5%,transparent 62.5%,transparent 66.66666667%,#f5f5f5 66.66666667%,#f5f5f5 70.83333333%,transparent 70.83333333%,transparent 75%,#f5f5f5 75%,#f5f5f5 79.16666667%,transparent 79.16666667%,transparent 83.33333333%,#f5f5f5 83.33333333%,#f5f5f5 87.5%,transparent 87.5%,transparent 91.66666667%,#f5f5f5 91.66666667%,#f5f5f5 95.83333333%,transparent 95.83333333%);
+        }
+
+        .fh-page-flex-row-example>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="fh-main">
+        <div class="fh-article">
+            <h1 class="big-title">FH-UI 设计文档</h1>
+            <p><b>FH-UI（全称：Fallen Homes UI in Upperworld）</b>是一款风格独特的前端框架。FH-UI重视视觉冲击力、层次感和适当的装饰，以活泼、锐利作为核心设计理念。</p>
+            <p>这可能并不是一个适合大多数需求的框架，如果您恰好十分欣赏这个框架，那么恭喜您！希望您喜欢这个框架。</p>
+
+            <h1>配色</h1>
+            <p>基于 FH-UI 活泼的特点，FH-UI 的配色比较鲜艳明亮。根据各种使用场景，FH-UI设计了 General、Safe、Warn、Danger 和 Special 四种界面颜色，并基于这四种基色设计了除 Default 外的 Dark 和 Glass 两种变种。其中，Default 是 FH-UI 的主题颜色，主题颜色可自定义（与 Default 区分），不过需要注意的是，FH-UI 大多使用白色作为背景颜色，很少应用到主题颜色。</p>
+
+            <div class="fh-page-colorpad">
+                <div class="fh-page-colorpad-block"><b>Default</b></div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-general);">General</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-safe);">Safe</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-warn);">Warn</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-danger);">Danger</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-special);">Special</div>
+            </div>
+            <div class="fh-page-colorpad" style="color: #FFF;">
+                <div class="fh-page-colorpad-block" style="color: #000;"><b>Dark</b></div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-general-dark);">General</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-safe-dark);">Safe</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-warn-dark);">Warn</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-danger-dark);">Danger</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-special-dark);">Special</div>
+
+            </div>
+            <div class="fh-page-colorpad">
+                <div class="fh-page-colorpad-block"><b>Glass</b></div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-general-glass);">General</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-safe-glass);">Safe</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-warn-glass);">Warn</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-danger-glass);">Danger</div>
+                <div class="fh-page-colorpad-block" style="background-color: var(--color-special-glass);">Special</div>
+            </div>
+
+            <p>以上配色是预先设置的，在实际应用中，部分颜色会使用各类滤镜动态调整。</p>
+            <p>Default - 基色。用于没有文本内容的界面。</p>
+            <p>Dark - 暗色。用于有文本内容的界面，例如按钮。</p>
+            <p>Glass - 半透明色。用于 Ghost 样式的界面。</p>
+            <p>General - 普通色。普通或缺省的按钮、普通的消息提示框等控件均使用此颜色。</p>
+            <p>Safe - 安全色。吸引用户交互的颜色，常用于保存、同意等操作按钮。</p>
+            <p>Warn - 警示色。提醒用户留意的颜色，一般用于消息提示，不建议使用在按钮上。</p>
+            <p>Danger - 危险色。告知用户谨慎操作，一般用于删除、取消等操作按钮。</p>
+            <p>Special - 特殊色。提醒用户对象的特殊性，例如难以定性又需要引起用户注意的复杂信息、操作等。</p>
+
+            <h1>布局</h1>
+            <h2>Grid 栅格</h2>
+            <p>FH-UI 沿用了 Ant Design 的 Grid 栅格布局方式，将整个设计建议区域按照 24 等分的原则进行划分。</p>
+
+            <div class="fh-flex-row fh-page-flex-row-example">
+                <div class="fh-col-24" style="background-color: rgba(64, 173, 235, 0.75);">100%</div>
+            </div>
+            <div class="fh-flex-row fh-page-flex-row-example">
+                <div class="fh-col-6" style="background-color: rgba(64, 173, 235, 0.75);">25%</div>
+                <div class="fh-col-6" style="color:#666">25%</div>
+                <div class="fh-col-6" style="background-color: rgba(64, 173, 235, 0.75);">25%</div>
+                <div class="fh-col-6" style="color:#666">25%</div>
+            </div>
+            <div class="fh-flex-row fh-page-flex-row-example">
+                <div class="fh-col-8" style="background-color: rgba(64, 173, 235, 0.75);">33.33%</div>
+                <div class="fh-col-8" style="color:#666">33.33%</div>
+                <div class="fh-col-8" style="background-color: rgba(64, 173, 235, 0.75);">33.33%</div>
+            </div>
+            <div class="fh-flex-row fh-page-flex-row-example">
+                <div class="fh-col-12" style="background-color: rgba(64, 173, 235, 0.75);">50%</div>
+                <div class="fh-col-12" style="color:#666">50%</div>
+            </div>
+            <div class="fh-flex-row fh-page-flex-row-example">
+                <div class="fh-col-16" style="background-color: rgba(64, 173, 235, 0.75);">66.66%</div>
+                <div class="fh-col-8" style="color:#666">33.33%</div>
+            </div>
+
+            <h1>控件</h1>
+            <p>FH-UI 对于控件有一个独特的设计——角标。在 FH-UI 中，任何一个可交互的控件都会有一个角标。角标使用 CSS 渐变功能实现，默认长度为 5px。在控件没有填充颜色的情况下（例如 Ghost 样式），角标跟随控件颜色；而在控件有深色填充颜色的情况下，角标颜色变为 50% 不透明度的白色，浅色则为 15% 不透明度的黑色。</p>
+
+            <h2>按钮</h2>
+            <p>FH-UI 设计了四种按钮样式：Full、Ghost、Dashed 和 Air，这些样式均有 Disabled 变种。</p>
+
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Full Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button" value="Default Button">
+                    <input type="button" class="fh-button fh-safe" value="Safe Button">
+                    <input type="button" class="fh-button fh-warn" value="Warn Button">
+                    <input type="button" class="fh-button fh-danger" value="Danger Button">
+                    <input type="button" class="fh-button fh-special" value="Special Button">
+                </div>
+            </div>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Ghost Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-ghost" value="Default Button">
+                    <input type="button" class="fh-button fh-ghost fh-safe" value="Safe Button">
+                    <input type="button" class="fh-button fh-ghost fh-warn" value="Warn Button">
+                    <input type="button" class="fh-button fh-ghost fh-danger" value="Danger Button">
+                    <input type="button" class="fh-button fh-ghost fh-special" value="Special Button">
+                </div>
+            </div>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Dashed Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-dashed" value="Default Button">
+                    <input type="button" class="fh-button fh-dashed fh-safe" value="Safe Button">
+                    <input type="button" class="fh-button fh-dashed fh-warn" value="Warn Button">
+                    <input type="button" class="fh-button fh-dashed fh-danger" value="Danger Button">
+                    <input type="button" class="fh-button fh-dashed fh-special" value="Special Button">
+                </div>
+            </div>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Air Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-air" value="Default Button">
+                    <input type="button" class="fh-button fh-air fh-safe" value="Safe Button">
+                    <input type="button" class="fh-button fh-air fh-warn" value="Warn Button">
+                    <input type="button" class="fh-button fh-air fh-danger" value="Danger Button">
+                    <input type="button" class="fh-button fh-air fh-special" value="Special Button">
+                </div>
+            </div>
+
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Disabled Full Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-disabled" value="Default Button">
+                    <input type="button" class="fh-button fh-safe fh-disabled" value="Safe Button">
+                    <input type="button" class="fh-button fh-warn fh-disabled" value="Warn Button">
+                    <input type="button" class="fh-button fh-danger fh-disabled" value="Danger Button">
+                    <input type="button" class="fh-button fh-special fh-disabled" value="Special Button">
+                </div>
+            </div>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Disabled Ghost Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-ghost fh-disabled" value="Default Button">
+                    <input type="button" class="fh-button fh-ghost fh-safe fh-disabled" value="Safe Button">
+                    <input type="button" class="fh-button fh-ghost fh-warn fh-disabled" value="Warn Button">
+                    <input type="button" class="fh-button fh-ghost fh-danger fh-disabled" value="Danger Button">
+                    <input type="button" class="fh-button fh-ghost fh-special fh-disabled" value="Special Button">
+                </div>
+            </div>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Disabled Dashed Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-dashed fh-disabled" value="Default Button">
+                    <input type="button" class="fh-button fh-dashed fh-safe fh-disabled" value="Safe Button">
+                    <input type="button" class="fh-button fh-dashed fh-warn fh-disabled" value="Warn Button">
+                    <input type="button" class="fh-button fh-dashed fh-danger fh-disabled" value="Danger Button">
+                    <input type="button" class="fh-button fh-dashed fh-special fh-disabled" value="Special Button">
+                </div>
+            </div>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Disabled Air Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-air fh-disabled" value="Default Button">
+                    <input type="button" class="fh-button fh-air fh-safe fh-disabled" value="Safe Button">
+                    <input type="button" class="fh-button fh-air fh-warn fh-disabled" value="Warn Button">
+                    <input type="button" class="fh-button fh-air fh-danger fh-disabled" value="Danger Button">
+                    <input type="button" class="fh-button fh-air fh-special fh-disabled" value="Special Button">
+                </div>
+            </div>
+
+            <h1>FH-UI 背后的故事</h1>
+            <p>我觉得大概没多少人会愿意阅读这个章节，因为如果您是来干正事的，那么这个章节就是在浪费您的时间。当然如果您和我一样是个大闲人，那您不妨坐下来听听这个故事。不过我不能说太多，这里毕竟还是 FH-UI 的设计文档，不要喧宾夺主了。</p>
+            <p>现在，让我们回顾这套框架的全称，<b>Fallen Homes UI in Upperworld</b>。我们暂且把这个“Upperworld”放一边，Fallen Homes 是什么？它是一个出自作者我 Sheep-realms 笔下、由我花费数年时间设计的一套世界观。虽然相关文学作品已经几乎停止更新，但这个世界观里的各种设计对我产生了深远的影响。</p>
+            <p>总的来说，Fallen Homes 是一个诞生在未来高科技世界下的一个用于训练人工智能的模拟世界，而伴随这个世界诞生的还有其特色UI，也就是您现在看到的东西。随着时间的推移，在 Fallen Homes 世界中的人们意识到了他们是“缸中之脑”，并将外面的世界称之为“Upperworld”，也叫“上界”。</p>
+            <p>所以说，代入这个世界观，您现在所看到的是 Fallen Homes UI 在 Upperworld 的拷贝版本。</p>
+        </div>
+    </div>
+</body>
+</html>

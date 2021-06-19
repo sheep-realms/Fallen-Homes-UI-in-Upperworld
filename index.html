@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <!-- <div id="fh-startpage" class="article">
+        <h1>欢迎使用！</h1>
+        <p>正文正文正文正文正文</p>
+        <h2>标题</h2>
+    </div> -->
+
+    <div class="fh-window">
+        <div class="fh-window-title">
+            <span class="title">title</span>
+            <span class="close"></span>
+        </div>
+        <div class="fh-window-content">
+            <div class="fh-msgbox-content">Hello, World!</div>
+            <div class="fh-msgbox-controller">
+                <input type="button" class="fh-button" value="确定">
+                <input type="button" class="fh-button fh-danger" value="取消">
+            </div>
+        </div>
+    </div>
+
+    <div class="fh-window" style="top:30px; right:30px;">
+        <div class="fh-window-title">
+            <span class="title">欢迎使用{fh.name}</span>
+            <span class="close"></span>
+        </div>
+        <div class="fh-window-content">
+            <div class="fh-msgbox-content">
+                <div>
+                    <p>欢迎使用{fh.name}！</p>
+                    <p>当前版本：{fh.ver}！</p>
+                    <p>该框架仍处于开发阶段，可能会出现各种BUG</p>
+                </div>
+            </div>
+            <div class="fh-msgbox-controller">
+                <input type="button" class="fh-button" value="确定">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
