@@ -35,6 +35,23 @@
             align-items: center;
             color: #FFF;
         }
+
+        .fh-page-desktop {
+            display: block;
+            position:relative;
+            height: 500px;
+            background-color: #F6F6F6;
+            overflow: hidden;
+        }
+
+        .fh-page-window-example {
+            position: absolute;
+        }
+
+        .fh-page-msgbox-controller .fh-button {
+            min-width: 120px;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
@@ -79,7 +96,7 @@
             <p>Glass - 半透明色。用于 Ghost 样式的界面。</p>
             <p>General - 普通色。普通或缺省的按钮、普通的消息提示框等控件均使用此颜色。</p>
             <p>Safe - 安全色。吸引用户交互的颜色，常用于保存、同意等操作按钮。</p>
-            <p>Warn - 警示色。提醒用户留意的颜色，一般用于消息提示，不建议使用在按钮上。</p>
+            <p>Warn - 警示色。提醒用户留意的颜色，一般用于消息提示，不建议使用在按钮上，除非周围有 Safe 和 Danger，可以作为过渡色。</p>
             <p>Danger - 危险色。告知用户谨慎操作，一般用于删除、取消等操作按钮。</p>
             <p>Special - 特殊色。提醒用户对象的特殊性，例如难以定性又需要引起用户注意的复杂信息、操作等。</p>
 
@@ -110,8 +127,12 @@
                 <div class="fh-col-8" style="color:#666">33.33%</div>
             </div>
 
+            <h1>文档</h1>
+            <p>如您所见，您现在正在浏览 FH-UI 所提供的文档版式。FH-UI 支持优化文章排版，仅需在文章所在的元素上添加类<code>fh-article</code>即可格式化为文章版式。</p>
+            <p>为了避免读者在阅读大量文本时串行，中文字体需要有较大的行间距。在文档版式下，<code>&lt;p&gt;</code>标签具有 1.5em 行高，同时段落（<code>&lt;p&gt;</code>）之间还有 0.5em 上下外边距。</p>
+
             <h1>控件</h1>
-            <p>FH-UI 对于控件有一个独特的设计——角标。在 FH-UI 中，任何一个可交互的控件都会有一个角标。角标使用 CSS 渐变功能实现，默认长度为 5px。在控件没有填充颜色的情况下（例如 Ghost 样式），角标跟随控件颜色；而在控件有深色填充颜色的情况下，角标颜色变为 50% 不透明度的白色，浅色则为 15% 不透明度的黑色。</p>
+            <p>FH-UI 对于控件有一个独特的设计——角标，统一位于右上角。在 FH-UI 中，任何一个可交互的控件都会有一个角标，在选择类型的控件中，角标还会被用来容纳代表选中的图标。角标使用 CSS 渐变功能实现，默认长度为 5px。在控件没有填充颜色的情况下（例如 Ghost 样式），角标跟随控件颜色；而在控件有深色填充颜色的情况下，角标颜色变为 50% 不透明度的白色，浅色则为 15% 不透明度的黑色。</p>
 
             <h2>按钮</h2>
             <p>FH-UI 设计了四种按钮样式：Full、Ghost、Dashed 和 Air，这些样式均有 Disabled 变种。</p>
@@ -160,43 +181,167 @@
             <div class="fh-flex-row" style="margin: 10px 0;">
                 <div class="fh-col-6">Disabled Full Button:</div>
                 <div class="fh-col-18">
-                    <input type="button" class="fh-button fh-disabled" value="Default Button">
-                    <input type="button" class="fh-button fh-safe fh-disabled" value="Safe Button">
-                    <input type="button" class="fh-button fh-warn fh-disabled" value="Warn Button">
-                    <input type="button" class="fh-button fh-danger fh-disabled" value="Danger Button">
-                    <input type="button" class="fh-button fh-special fh-disabled" value="Special Button">
+                    <input type="button" class="fh-button" disabled value="Default Button">
+                    <input type="button" class="fh-button fh-safe" disabled value="Safe Button">
+                    <input type="button" class="fh-button fh-warn" disabled value="Warn Button">
+                    <input type="button" class="fh-button fh-danger" disabled value="Danger Button">
+                    <input type="button" class="fh-button fh-special" disabled value="Special Button">
                 </div>
             </div>
             <div class="fh-flex-row" style="margin: 10px 0;">
                 <div class="fh-col-6">Disabled Ghost Button:</div>
                 <div class="fh-col-18">
-                    <input type="button" class="fh-button fh-ghost fh-disabled" value="Default Button">
-                    <input type="button" class="fh-button fh-ghost fh-safe fh-disabled" value="Safe Button">
-                    <input type="button" class="fh-button fh-ghost fh-warn fh-disabled" value="Warn Button">
-                    <input type="button" class="fh-button fh-ghost fh-danger fh-disabled" value="Danger Button">
-                    <input type="button" class="fh-button fh-ghost fh-special fh-disabled" value="Special Button">
+                    <input type="button" class="fh-button fh-ghost" disabled value="Default Button">
+                    <input type="button" class="fh-button fh-ghost fh-safe" disabled value="Safe Button">
+                    <input type="button" class="fh-button fh-ghost fh-warn" disabled value="Warn Button">
+                    <input type="button" class="fh-button fh-ghost fh-danger" disabled value="Danger Button">
+                    <input type="button" class="fh-button fh-ghost fh-special" disabled value="Special Button">
                 </div>
             </div>
             <div class="fh-flex-row" style="margin: 10px 0;">
                 <div class="fh-col-6">Disabled Dashed Button:</div>
                 <div class="fh-col-18">
-                    <input type="button" class="fh-button fh-dashed fh-disabled" value="Default Button">
-                    <input type="button" class="fh-button fh-dashed fh-safe fh-disabled" value="Safe Button">
-                    <input type="button" class="fh-button fh-dashed fh-warn fh-disabled" value="Warn Button">
-                    <input type="button" class="fh-button fh-dashed fh-danger fh-disabled" value="Danger Button">
-                    <input type="button" class="fh-button fh-dashed fh-special fh-disabled" value="Special Button">
+                    <input type="button" class="fh-button fh-dashed" disabled value="Default Button">
+                    <input type="button" class="fh-button fh-dashed fh-safe" disabled value="Safe Button">
+                    <input type="button" class="fh-button fh-dashed fh-warn" disabled value="Warn Button">
+                    <input type="button" class="fh-button fh-dashed fh-danger" disabled value="Danger Button">
+                    <input type="button" class="fh-button fh-dashed fh-special" disabled value="Special Button">
                 </div>
             </div>
             <div class="fh-flex-row" style="margin: 10px 0;">
                 <div class="fh-col-6">Disabled Air Button:</div>
                 <div class="fh-col-18">
-                    <input type="button" class="fh-button fh-air fh-disabled" value="Default Button">
-                    <input type="button" class="fh-button fh-air fh-safe fh-disabled" value="Safe Button">
-                    <input type="button" class="fh-button fh-air fh-warn fh-disabled" value="Warn Button">
-                    <input type="button" class="fh-button fh-air fh-danger fh-disabled" value="Danger Button">
-                    <input type="button" class="fh-button fh-air fh-special fh-disabled" value="Special Button">
+                    <input type="button" class="fh-button fh-air" disabled value="Default Button">
+                    <input type="button" class="fh-button fh-air fh-safe" disabled value="Safe Button">
+                    <input type="button" class="fh-button fh-air fh-warn" disabled value="Warn Button">
+                    <input type="button" class="fh-button fh-air fh-danger" disabled value="Danger Button">
+                    <input type="button" class="fh-button fh-air fh-special" disabled value="Special Button">
                 </div>
             </div>
+
+            <h3>角标的偏移细节</h3>
+            <p>上文提到，角标是由 CSS 渐变实现的，而渐变应用在 background-image 中，这就导致如果元素存在边框就会产生怪异的视觉效果。由于按钮控件的边框的宽度已经被算入按钮总尺寸中，因此为了统一视觉效果，角标也要有所偏移。</p>
+            <p>首先是 Dashed 按钮。由于边框是虚线，留下虚线会产生凹凸不平的角标边缘，因此角标必须将边框覆盖，角标向右上角偏移了 1px。</p>
+            <p>其次是 Ghost 按钮。由于有实线边框的存在，产生了角标偏大的视觉错觉，但如果将角标向右上角偏移了 1px 又会产生偏小的错觉，因此折中一下向右上角偏移了 0.5px。</p>
+
+            <h3>各种尺寸的按钮</h3>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Big Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-big" value="Default Button">
+                    <input type="button" class="fh-button fh-ghost fh-big" value="Ghost Button">
+                    <input type="button" class="fh-button fh-dashed fh-big" value="Dashed Button">
+                    <input type="button" class="fh-button fh-air fh-big" value="Air Button">
+                </div>
+            </div>
+
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Default Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button" value="Default Button">
+                    <input type="button" class="fh-button fh-ghost" value="Ghost Button">
+                    <input type="button" class="fh-button fh-dashed" value="Dashed Button">
+                    <input type="button" class="fh-button fh-air" value="Air Button">
+                </div>
+            </div>
+
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">Small Button:</div>
+                <div class="fh-col-18">
+                    <input type="button" class="fh-button fh-small" value="Default Button">
+                    <input type="button" class="fh-button fh-ghost fh-small" value="Ghost Button">
+                    <input type="button" class="fh-button fh-dashed fh-small" value="Dashed Button">
+                    <input type="button" class="fh-button fh-air fh-small" value="Air Button">
+                </div>
+            </div>
+
+            <h3>Block 按钮</h3>
+            <p>Block 按钮会自适应父元素的宽度。</p>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-12">
+                    <input type="button" class="fh-button fh-block" value="Default Button">
+                    <input type="button" class="fh-button fh-ghost fh-block" value="Ghost Button">
+                    <input type="button" class="fh-button fh-dashed fh-block" value="Dashed Button">
+                    <input type="button" class="fh-button fh-air fh-block" value="Air Button">
+                </div>
+                <div class="fh-col-12">
+                    <input type="button" class="fh-button fh-block" disabled value="Default Button">
+                    <input type="button" class="fh-button fh-ghost fh-block" disabled value="Ghost Button">
+                    <input type="button" class="fh-button fh-dashed fh-block" disabled value="Dashed Button">
+                    <input type="button" class="fh-button fh-air fh-block" disabled value="Air Button">
+                </div>
+            </div>
+
+            <h3>Msgbox 控制器按钮</h3>
+            <p>在 Msgbox 对话框中的按钮会使用固定的最小宽度和一定的间距。Msgbox 可以使用方法创建，本段落效果仅作演示。</p>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-24 fh-page-msgbox-controller" style="text-align: center; padding: 15px 0;">
+                    <input type="button" class="fh-button" value="Default Button">
+                    <input type="button" class="fh-button fh-ghost" value="Ghost Button">
+                    <input type="button" class="fh-button fh-dashed" value="Dashed Button">
+                    <input type="button" class="fh-button fh-air" value="Air Button">
+                </div>
+            </div>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-12 fh-page-msgbox-controller" style="text-align: center; padding: 15px 0;">
+                    <input type="button" class="fh-button" value="OK">
+                    <input type="button" class="fh-button fh-danger" value="Cancel">
+                </div>
+                <div class="fh-col-12 fh-page-msgbox-controller" style="text-align: center; padding: 15px 0; background-color: #EEE;">
+                    <input type="button" class="fh-button" value="Yes">
+                    <input type="button" class="fh-button fh-warn" value="No">
+                    <input type="button" class="fh-button fh-danger" value="Cancel">
+                </div>
+            </div>
+
+
+            <h1>动画</h1>
+            <p>动画是 FH-UI 中的一项重要元素。需要注意的是，在 FH-UI 中大多数情况下动画都以右上角作为起点，即从右上角向左下角展开，从左下角向右上角收起。例如下面的窗口：（刷新页面可查看展开动画）</p>
+
+            <div class="fh-page-desktop">
+                <div class="fh-window fh-page-window-example" style="top: 20px; right: 50px;">
+                    <div class="fh-window-title">
+                        <span class="title">title</span>
+                        <span class="close"></span>
+                    </div>
+                    <div class="fh-window-content">
+                        <div class="fh-msgbox-content">Hello, World!</div>
+                        <div class="fh-msgbox-controller">
+                            <input type="button" class="fh-button" value="确定">
+                            <input type="button" class="fh-button fh-danger" value="取消">
+                        </div>
+                    </div>
+                </div>
+                <div class="fh-window fh-page-window-example" style="top: 70px; right: 150px;">
+                    <div class="fh-window-title">
+                        <span class="title">title</span>
+                        <span class="close"></span>
+                    </div>
+                    <div class="fh-window-content">
+                        <div class="fh-msgbox-content">Hello, World!</div>
+                        <div class="fh-msgbox-controller">
+                            <input type="button" class="fh-button" value="确定">
+                            <input type="button" class="fh-button fh-danger" value="取消">
+                        </div>
+                    </div>
+                </div>
+                <div class="fh-window fh-page-window-example" style="top: 120px; right: 250px;">
+                    <div class="fh-window-title">
+                        <span class="title">title</span>
+                        <span class="close"></span>
+                    </div>
+                    <div class="fh-window-content">
+                        <div class="fh-msgbox-content">Hello, World!</div>
+                        <div class="fh-msgbox-controller">
+                            <input type="button" class="fh-button" value="确定">
+                            <input type="button" class="fh-button fh-danger" value="取消">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>以上动画播放速度被设定为1秒，播放速度可修改。</p>
+            
 
             <h1>FH-UI 背后的故事</h1>
             <p>我觉得大概没多少人会愿意阅读这个章节，因为如果您是来干正事的，那么这个章节就是在浪费您的时间。当然如果您和我一样是个大闲人，那您不妨坐下来听听这个故事。不过我不能说太多，这里毕竟还是 FH-UI 的设计文档，不要喧宾夺主了。</p>

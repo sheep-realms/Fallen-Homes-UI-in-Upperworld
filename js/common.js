@@ -9,6 +9,20 @@ $('.fh-window').ready(function() {
     });
 });
 
+$('ruby').ready(function() {
+    if ($(this).data('fh-load') == undefined) {
+        $(this).children('rt').before('<span class="fh-ruby-hidden">（</span>');
+        $(this).children('rt').after('<span class="fh-ruby-hidden">）</span>');
+        $(this).data('fh-load', true);
+    }
+});
+
+$('pre').ready(function() {
+    let text = $(this).html();
+    console.log(text);
+    $(this).html(text.replace(/</g, "&lt;").replace(/>/g, "&gt;"));
+});
+
 /**
  * 窗口 | Window
  * @class MsgBox

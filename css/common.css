@@ -36,6 +36,28 @@ body {
     background-color: #FAFAFA;
 }
 
+code, pre {
+    background-color: #EEE;
+    font-family: Monaco, Consolas, 'Lucida Console', 'Courier New', serif;
+}
+
+code {
+    display: inline-block;
+    padding: 0 3px;
+    margin: 0 5px;
+    border-radius: 3px;
+}
+
+ruby>rt {
+    font-size: 0.75em;
+}
+
+ruby>.fh-ruby-hidden {
+    display: inline-block;
+    width: 0;
+    font-size: 0;
+}
+
 .fh-main {
     width: 1000px;
     margin: 0 auto;
@@ -129,6 +151,12 @@ body {
     border-bottom: #AAA 1px solid;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+.fh-article h3 {
+    font-size: 19px;
+    margin-top: 14px;
+    margin-bottom: 6px;
 }
 
 .fh-article p {
@@ -275,17 +303,18 @@ body {
     border: none;
     cursor: pointer;
     vertical-align: baseline;
+    outline: none;
     background-color: var(--color-general-dark);
     background-image: var(--corner-marker);
     background-repeat: no-repeat;
     transition: filter var(--animation-speed-button-switch), background-color var(--animation-speed-button-switch);
 }
 
-.fh-button:hover:not(.fh-disabled) {
+.fh-button:hover:not(.fh-disabled, :disabled) {
     filter: brightness(1.15);
 }
 
-.fh-button:active:not(.fh-disabled) {
+.fh-button:active:not(.fh-disabled, :disabled) {
     transition: filter 0s;
     filter: brightness(0.85);
 }
@@ -306,8 +335,36 @@ body {
     background-color: var(--color-special-dark);
 }
 
+.fh-button:focus:not(.fh-disabled, :disabled) {
+    --color-focus: var(--color-general-glass);
+    --box-shadow-size: 5px;
+    filter: brightness(1.05);
+    box-shadow: var(--color-focus) 0 0 var(--box-shadow-size), var(--color-focus) 0 0 var(--box-shadow-size), var(--color-focus) 0 0 var(--box-shadow-size), var(--color-focus) 0 0 var(--box-shadow-size), var(--color-focus) 0 0 var(--box-shadow-size);
+}
+
+.fh-button.fh-air:focus {
+    box-shadow: none;
+}
+
+.fh-button.fh-safe:focus {
+    --color-focus: var(--color-safe-glass);
+}
+
+.fh-button.fh-warn:focus {
+    --color-focus: var(--color-warn-glass);
+}
+
+.fh-button.fh-danger:focus {
+    --color-focus: var(--color-danger-glass);
+}
+
+.fh-button.fh-special:focus {
+    --color-focus: var(--color-special-glass);
+}
+
+
 .fh-button.fh-ghost {
-    height: 33px;
+    height: 35px;
     line-height: 33px;
     padding: 0 9px;
     color: var(--color-general-dark);
@@ -316,10 +373,11 @@ body {
     background-color: transparent;
     --corner-marker-color: var(--color-general-dark);
     background-image: var(--corner-marker);
+    background-position: 0.5px -0.5px;
 }
 
 .fh-button.fh-dashed {
-    height: 33px;
+    height: 35px;
     line-height: 33px;
     padding: 0 9px;
     color: var(--color-general-dark);
@@ -328,6 +386,7 @@ body {
     background-color: transparent;
     --corner-marker-color: var(--color-general-dark);
     background-image: var(--corner-marker);
+    background-position: 1px -1px;
 }
 
 .fh-button.fh-air {
@@ -342,48 +401,48 @@ body {
     background-image: var(--corner-marker);
 }
 
-.fh-button.fh-ghost:hover:not(.fh-disabled),
-.fh-button.fh-ghost:active:not(.fh-disabled),
-.fh-button.fh-dashed:hover:not(.fh-disabled),
-.fh-button.fh-dashed:active:not(.fh-disabled),
-.fh-button.fh-air:hover:not(.fh-disabled),
-.fh-button.fh-air:active:not(.fh-disabled) {
+.fh-button.fh-ghost:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-ghost:active:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed:active:not(.fh-disabled, :disabled),
+.fh-button.fh-air:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-air:active:not(.fh-disabled, :disabled) {
     background-color: var(--color-general-glass);
 }
 
-.fh-button.fh-ghost.fh-safe:hover:not(.fh-disabled),
-.fh-button.fh-ghost.fh-safe:active:not(.fh-disabled),
-.fh-button.fh-dashed.fh-safe:hover:not(.fh-disabled),
-.fh-button.fh-dashed.fh-safe:active:not(.fh-disabled),
-.fh-button.fh-air.fh-safe:hover:not(.fh-disabled),
-.fh-button.fh-air.fh-safe:active:not(.fh-disabled) {
+.fh-button.fh-ghost.fh-safe:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-ghost.fh-safe:active:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed.fh-safe:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed.fh-safe:active:not(.fh-disabled, :disabled),
+.fh-button.fh-air.fh-safe:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-air.fh-safe:active:not(.fh-disabled, :disabled) {
     background-color: var(--color-safe-glass);
 }
 
-.fh-button.fh-ghost.fh-warn:hover:not(.fh-disabled),
-.fh-button.fh-ghost.fh-warn:active:not(.fh-disabled),
-.fh-button.fh-dashed.fh-warn:hover:not(.fh-disabled),
-.fh-button.fh-dashed.fh-warn:active:not(.fh-disabled),
-.fh-button.fh-air.fh-warn:hover:not(.fh-disabled),
-.fh-button.fh-air.fh-warn:active:not(.fh-disabled) {
+.fh-button.fh-ghost.fh-warn:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-ghost.fh-warn:active:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed.fh-warn:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed.fh-warn:active:not(.fh-disabled, :disabled),
+.fh-button.fh-air.fh-warn:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-air.fh-warn:active:not(.fh-disabled, :disabled) {
     background-color: var(--color-warn-glass);
 }
 
-.fh-button.fh-ghost.fh-danger:hover:not(.fh-disabled),
-.fh-button.fh-ghost.fh-danger:active:not(.fh-disabled),
-.fh-button.fh-dashed.fh-danger:hover:not(.fh-disabled),
-.fh-button.fh-dashed.fh-danger:active:not(.fh-disabled),
-.fh-button.fh-air.fh-danger:hover:not(.fh-disabled),
-.fh-button.fh-air.fh-danger:active:not(.fh-disabled) {
+.fh-button.fh-ghost.fh-danger:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-ghost.fh-danger:active:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed.fh-danger:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed.fh-danger:active:not(.fh-disabled, :disabled),
+.fh-button.fh-air.fh-danger:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-air.fh-danger:active:not(.fh-disabled, :disabled) {
     background-color: var(--color-danger-glass);
 }
 
-.fh-button.fh-ghost.fh-special:hover:not(.fh-disabled),
-.fh-button.fh-ghost.fh-special:active:not(.fh-disabled),
-.fh-button.fh-dashed.fh-special:hover:not(.fh-disabled),
-.fh-button.fh-dashed.fh-special:active:not(.fh-disabled),
-.fh-button.fh-air.fh-special:hover:not(.fh-disabled),
-.fh-button.fh-air.fh-special:active:not(.fh-disabled) {
+.fh-button.fh-ghost.fh-special:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-ghost.fh-special:active:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed.fh-special:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-dashed.fh-special:active:not(.fh-disabled, :disabled),
+.fh-button.fh-air.fh-special:hover:not(.fh-disabled, :disabled),
+.fh-button.fh-air.fh-special:active:not(.fh-disabled, :disabled) {
     background-color: var(--color-special-glass);
 }
 
@@ -443,11 +502,30 @@ body {
     background-image: var(--corner-marker);
 }
 
-.fh-button.fh-disabled {
+.fh-button.fh-disabled,
+.fh-button:disabled {
     cursor: not-allowed;
     filter: opacity(0.35);
 }
 
+.fh-button.fh-big {
+    height: 45px;
+    line-height: 43px;
+    padding: 0 15px;
+    font-size: 16px;
+}
+
+.fh-button.fh-small {
+    height: 26px;
+    line-height: 23px;
+    padding: 0 8px;
+}
+
+.fh-button.fh-block {
+    display: block;
+    width: calc(100% - 10px);
+    margin: 10px 5px;
+}
 
 /* FH MsgBox-Button */
 
