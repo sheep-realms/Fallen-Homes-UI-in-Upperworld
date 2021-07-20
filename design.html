@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Document</title>
-    <link rel="stylesheet" href="css/common.css">
-    <script src="js/jquery-1.7.2.min.js"></script>
-    <script src="js/common.js"></script>
+    <link rel="stylesheet" href="common/css/common.css">
+    <script src="common/js/jquery-1.7.2.min.js"></script>
+    <script src="common/js/common.js"></script>
     <style>
         .fh-page-colorpad {
             width: 600px;
@@ -298,6 +298,7 @@
             <h1>动画</h1>
             <p>动画是 FH-UI 中的一项重要元素。需要注意的是，在 FH-UI 中大多数情况下动画都以右上角作为起点，即从右上角向左下角展开，从左下角向右上角收起。例如下面的窗口：（刷新页面可查看展开动画）</p>
 
+            <h2>窗口展开和收起</h2>
             <div class="fh-page-desktop">
                 <div class="fh-window fh-page-window-example" style="top: 20px; right: 50px;">
                     <div class="fh-window-title">
@@ -342,6 +343,21 @@
 
             <p>以上动画播放速度被设定为1秒，播放速度可修改。</p>
             
+            <h2>加载动画</h2>
+            <div class="fh-flex-row" style="margin: 10px 0;">
+                <div class="fh-col-6">
+                    
+                </div>
+                <div class="fh-col-6">
+                    <span class="fh-loading fh-small"><span></span><span></span></span>
+                </div>
+                <div class="fh-col-6">
+                    <div class="fh-loading"><div></div><div></div></div>
+                </div>
+                <div class="fh-col-6">
+                    <div class="fh-loading fh-big"><div></div><div></div></div>
+                </div>
+            </div>
 
             <h1>FH-UI 背后的故事</h1>
             <p>我觉得大概没多少人会愿意阅读这个章节，因为如果您是来干正事的，那么这个章节就是在浪费您的时间。当然如果您和我一样是个大闲人，那您不妨坐下来听听这个故事。不过我不能说太多，这里毕竟还是 FH-UI 的设计文档，不要喧宾夺主了。</p>

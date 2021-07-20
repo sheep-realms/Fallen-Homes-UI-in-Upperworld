@@ -1,0 +1,1 @@
+$('fh\\:startpage').html('<div id="fh-startpage" class="article"><h1>欢迎使用！</h1><p>正文正文正文正文正文</p></div>');

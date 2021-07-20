@@ -1,0 +1,147 @@
+.fh-skill {
+    --value: 0;
+    --max: 100;
+    --time-cd: 10s;
+    --time-run: 1.5s;
+    --time-build: 10s;
+    --time-dead: 7s;
+    --width: 150px;
+    width: var(--width);
+    height: 55px;
+    box-shadow: #ccc 0 1px 5px;
+    margin: 10px;
+    display: inline-block;
+    background-color: #FFF;
+}
+
+.fh-skill.sleep,
+.fh-skill.build,
+.fh-skill.build-ok {
+    opacity: 0.5;
+}
+
+.fh-skill.cd {
+    --value: var(--max);
+}
+
+.fh-skill.run {
+    --value: 0;
+}
+
+.fh-skill-content {
+    height: 50px;
+}
+
+.fh-skill.build-ok {
+    box-shadow: var(--color-general-glass) 0 1px 7px, var(--color-general-glass) 0 1px 7px, var(--color-general-glass) 0 1px 7px, var(--color-general-glass) 0 1px 7px, var(--color-general-glass) 0 1px 7px;
+}
+
+.fh-skill.cd-ok {
+    box-shadow: var(--color-safe-glass) 0 1px 7px, var(--color-safe-glass) 0 1px 7px, var(--color-safe-glass) 0 1px 7px, var(--color-safe-glass) 0 1px 7px, var(--color-safe-glass) 0 1px 7px;
+}
+
+.fh-skill.run {
+    box-shadow: var(--color-warn-glass) 0 1px 5px, var(--color-warn-glass) 0 1px 5px, var(--color-warn-glass) 0 1px 5px, var(--color-warn-glass) 0 1px 5px, var(--color-warn-glass) 0 1px 5px;
+}
+
+.fh-skill.dead {
+    box-shadow: var(--color-danger-glass) 0 1px 5px, var(--color-danger-glass) 0 1px 5px, var(--color-danger-glass) 0 1px 5px, var(--color-danger-glass) 0 1px 5px, var(--color-danger-glass) 0 1px 5px;
+}
+
+.fh-skill.build-ok .fh-skill-content {
+    animation: fh-skill-build-ok 0.75s;
+}
+
+.fh-skill.cd-ok .fh-skill-content {
+    animation: fh-skill-cd-ok 0.75s;
+}
+
+.fh-skill.run .fh-skill-content {
+    animation: fh-skill-run 0.75s;
+}
+
+.fh-skill.dead .fh-skill-content {
+    animation: fh-skill-dead 0.75s;
+}
+
+@keyframes fh-skill-build-ok {
+    0% {background-color: var(--color-general-glass);}
+    100% {background-color: transparent;}
+}
+
+@keyframes fh-skill-cd-ok {
+    0% {background-color: var(--color-safe-glass);}
+    100% {background-color: transparent;}
+}
+
+@keyframes fh-skill-run {
+    0% {background-color: var(--color-warn-glass);}
+    100% {background-color: transparent;}
+}
+
+@keyframes fh-skill-dead {
+    0% {background-color: var(--color-danger-glass);}
+    100% {background-color: transparent;}
+}
+
+.fh-skill-progress-bar {
+    height: 5px;
+}
+
+.fh-skill-progress-bar>.content {
+    height: 5px;
+    width: calc(var(--width) * (var(--value) / var(--max)));
+}
+
+.fh-skill.build .fh-skill-progress-bar>.content {
+    width: 100%;
+    animation: fh-skill-progress-bar-cd var(--time-build) linear;
+    background-color: var(--color-general);
+}
+
+.fh-skill.build-ok .fh-skill-progress-bar>.content {
+    width: 100%;
+    background-color: var(--color-general);
+}
+
+.fh-skill.cd .fh-skill-progress-bar>.content {
+    width: 100%;
+    animation: fh-skill-progress-bar-cd var(--time-cd) linear;
+    background-color: var(--color-safe);
+}
+
+.fh-skill.cd-ok .fh-skill-progress-bar>.content {
+    width: 100%;
+    background-color: var(--color-safe);
+}
+
+.fh-skill.run .fh-skill-progress-bar>.content {
+    width: 0%;
+    animation: fh-skill-progress-bar-run var(--time-run) linear;
+    background-color: var(--color-warn);
+}
+
+.fh-skill.dead .fh-skill-progress-bar>.content {
+    width: 100%;
+    animation: fh-skill-progress-bar-dead var(--time-dead) linear;
+    background-color: var(--color-danger);
+}
+
+.fh-skill-progress-bar>.content {
+    background-color: var(--bg-color);
+}
+
+@keyframes fh-skill-progress-bar-cd {
+    0% {width: 0;}
+    100% {width: 100%;}
+}
+
+@keyframes fh-skill-progress-bar-run {
+    0% {width: 100%;}
+    100% {width: 0%;}
+}
+
+@keyframes fh-skill-progress-bar-dead {
+    0% {width: 100%;}
+    100% {width: 0%;}
+}

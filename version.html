@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="common/css/common.css">
+    <script src="common/js/jquery-1.7.2.min.js"></script>
+    <script src="common/js/common.js"></script>
+    <script src="app/fh-ecode/main.js"></script>
+    <script src="app/fh-mathematics/main.js"></script>
+    <script src="app/fh-metronome/main.js"></script>
+    <script src="app/fh-geometry/main.js"></script>
+    <script src="app/fh-skill/main.js"></script>
+</head>
+<body>
+    <div class="fh-main">
+        <div class="fh-article">
+            <h1 class="big-title">FH-UI 版本</h1>
+            <p>版权所有 © 2001-2021 Sheep-realms</p>
+            <p>您可以依据自由软件基金会发行的<a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU通用公共许可协议第2版</a>或任意后续版本的条款，传播和/或修改本软件。</p>
+
+            <h2>安装的程序</h2>
+            <table id="program-table">
+                <tr>
+                    <th>名称</th>
+                    <th>版本</th>
+                </tr>
+            </table>
+
+            <h2>系统配置</h2>
+            <table id="system-config-table">
+                <tr>
+                    <th>配置名称</th>
+                    <th>配置值</th>
+                </tr>
+            </table>
+
+            <h2>应用程序</h2>
+            <table id="app-table" style="width: 100%;">
+                <tr>
+                    <th>应用名称</th>
+                    <th>版本</th>
+                    <th>许可协议</th>
+                    <th>描述</th>
+                    <th>作者</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let pgt = $('#program-table');
+        pgt.append('<tr><td>Fallen Homes UI in Upperworld</td><td>' + fh.version + '</td></tr>');
+        pgt.append('<tr><td>JQuery</td><td>' + $.fn.jquery + '</td></tr>');
+
+        let sct = $('#system-config-table');
+        sct.append('<tr><td>站点名称</td><td>' + fh.getConfig("websiteName") + '</td></tr>');
+        sct.append('<tr><td>站点域名</td><td>' + fh.getConfig("websiteDomain") + '</td></tr>');
+        sct.append('<tr><td>站点协议</td><td>' + fh.getConfig("websiteProtocol") + '</td></tr>');
+        sct.append('<tr><td>站点根目录</td><td>' + fh.getConfig("websiteRootDir") + '</td></tr>');
+
+        let apt = $('#app-table');
+
+        fh.app.forEach(e => {
+            apt.append('<tr><td>' + e.name + '</td><td>' + e.version + '</td><td>' + e.license + '</td><td>' + e.description + '</td><td>' + e.author + '</td></tr>');
+        });
+    </script>
+</body>
+</html>

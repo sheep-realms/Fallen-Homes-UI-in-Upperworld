@@ -1,0 +1,38 @@
+.fh-metronome {
+    --block-width: 15px;
+    --block-hight: 15px;
+}
+
+.fh-metronome>div {
+    width: var(--block-width);
+    height: var(--block-hight);
+    margin: 2.5px;
+    display: inline-block;
+    border: var(--color-general) 1px solid;
+}
+
+.fh-metronome>.fill {
+    background-color: var(--color-general);
+}
+
+.fh-metronome>.glass {
+    background-color: var(--color-general-glass);
+}
+
+.fh-metronome.bass-drum {
+    animation: fh-metronome-bass-drum var(--kira-time);
+}
+
+.fh-metronome.military-drum {
+    animation: fh-metronome-military-drum var(--kira-time);
+}
+
+@keyframes fh-metronome-bass-drum {
+    0% {filter: brightness(1.2);}
+    100% {filter: brightness(1);}
+}
+
+@keyframes fh-metronome-military-drum {
+    0% {filter: brightness(1.35);}
+    100% {filter: brightness(1);}
+}
